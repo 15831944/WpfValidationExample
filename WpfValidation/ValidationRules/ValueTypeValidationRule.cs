@@ -14,7 +14,7 @@ namespace WpfValidation.ValidationRules
             var text = obj as string;
             try
             {
-                _ = Convert.ChangeType(text, TypeCode);
+                _ = Convert.ChangeType(text, TypeCode, cultureInfo);
                 return ValidationResult.ValidResult;
             }
             catch (FormatException)
