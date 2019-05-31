@@ -25,10 +25,35 @@
             <Setter Property="Width" Value="200" />
             <Setter Property="Height" Value="26" />
 
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <ControlTemplate.Resources>
+                            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+                        </ControlTemplate.Resources>
+                        <Border BorderThickness="0"
+                                BorderBrush="Green"
+                                Visibility="{Binding ElementName=Placeholder, Mode=OneWay, Path=AdornedElement.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <AdornedElementPlaceholder x:Name="Placeholder" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="ToolTip"
                             Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ErrorTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Red" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Style.Triggers>
+                <Trigger Property="Text" Value="">
+                    <Setter Property="Visibility" Value="Collapsed" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -40,7 +65,7 @@
 
     <Grid Margin="0,20,0,0" x:Name="MainGrid" validation:Scope.ForInputTypes="TextBox">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
@@ -54,8 +79,13 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Name" />
-        <TextBox Grid.Column="1" Grid.Row="0"
-                 Text="{bindings:ValidationBinding Path=Name}" />
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="0,5">
+            <TextBox x:Name="TxtName"
+                     Text="{bindings:ValidationBinding Path=Name}" />
+            <TextBlock Style="{StaticResource ErrorTextBlockStyle}"
+                       Text="{Binding ElementName=TxtName, Path=(Validation.Errors)[0].ErrorContent}" />
+
+        </StackPanel>
 
         <TextBlock Grid.Column="0" Grid.Row="1" Text="Age" />
         <TextBox Grid.Column="1" Grid.Row="1"

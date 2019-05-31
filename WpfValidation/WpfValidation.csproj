@@ -74,6 +74,15 @@
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
     <Compile Include="Converters\EnumToIntegerConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="ListWindow.xaml.cs">
+      <DependentUpon>ListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextBlockDisplayErrorWindow.xaml.cs">
+      <DependentUpon>TextBlockDisplayErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolTipDisplayErrorWindow.xaml.cs">
+      <DependentUpon>ToolTipDisplayErrorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValidationRules\ValueTypeValidationRule.cs" />
     <Compile Include="UserViewModel.cs" />
     <Compile Include="Validation\FluentValidatorExtensions.cs" />
@@ -81,6 +90,10 @@
     <Compile Include="Validation\FluentValidators\BytesLengthValidator.cs" />
     <Compile Include="Validation\FluentValidators\InvalidFileNameCharsValidator.cs" />
     <Compile Include="Validation\ViewModelValidator.cs" />
+    <Page Include="ListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +106,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TextBlockDisplayErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\FormEditStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToolTipDisplayErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
