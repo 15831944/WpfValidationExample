@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace WpfValidation.ValidationRules
 {
-    public class ValueTypeValidationRule : ValidationRule
+    public class FormatValidationRule : ValidationRule
     {
         public TypeCode TypeCode { get; set; }
         public string ErrorContent { get; set; }

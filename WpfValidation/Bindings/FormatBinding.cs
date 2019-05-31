@@ -30,10 +30,10 @@ namespace WpfValidation.Bindings
             get => _typeCode;
             set
             {
-                var formatRule = ValidationRules.OfType<ValueTypeValidationRule>().FirstOrDefault();
+                var formatRule = ValidationRules.OfType<FormatValidationRule>().FirstOrDefault();
                 if (formatRule == null)
                 {
-                    formatRule = new ValueTypeValidationRule();
+                    formatRule = new FormatValidationRule();
                     ValidationRules.Add(formatRule);
                 }
 
