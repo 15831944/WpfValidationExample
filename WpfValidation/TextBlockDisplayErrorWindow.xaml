@@ -72,7 +72,7 @@
             <TextBlock Grid.Column="0" Grid.Row="0" Text="Name" />
             <TextBox Grid.Column="1" Grid.Row="0"
                      x:Name="TxtName"
-                     Text="{bindings:FormatBinding Path=Name}" />
+                     Text="{bindings:ValidationBinding Path=Name}" />
             <TextBlock Grid.Column="1" Grid.Row="1"
                        Style="{StaticResource ErrorMessageTextBlock}"
                        Text="{Binding ElementName=TxtName, Path=(Validation.Errors)[0].ErrorContent}" />
@@ -107,7 +107,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" Text="Name" />
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Height" />
             <TextBox Grid.Column="1" Grid.Row="0"
                      x:Name="TxtHeight"
                      Text="{bindings:FormatBinding Path=Height,TypeCode=Single}" />
