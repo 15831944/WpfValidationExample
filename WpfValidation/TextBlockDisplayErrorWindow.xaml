@@ -146,7 +146,17 @@
 
         <GroupBox>
             <GroupBox.Header>
-                <TextBlock Text="Validation result" Foreground="Red" FontWeight="Black" />
+                <TextBlock Text="Validation result" FontWeight="Black">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Offset="0.0" Color="PaleVioletRed" />
+                            <GradientStop Offset="0.25" Color="IndianRed" />
+                            <GradientStop Offset="0.5" Color="MediumVioletRed" />
+                            <GradientStop Offset="0.75" Color="Red" />
+                            <GradientStop Offset="1" Color="DarkRed" />
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
             </GroupBox.Header>
 
             <ItemsControl BorderThickness="2" BorderBrush="Red"
